@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import location from '../../assets/map-pin.svg';
 import spyglass from '../../assets/magnifying-glass.svg';
@@ -7,6 +7,32 @@ import cart from '../../assets/add_shopping_cart.svg';
 import './header.scss';
 
 const Header = () => {
+  const [lat, setLat] = useState('');
+  const [lng, setLng] = useState('');
+  const [city, setCity] = useState('');
+  const [language, setLanguage] = useState('english');
+  let pos;
+
+  useEffect(() => {
+    try {
+      if (navigator) {
+        const getLoc = async () => {
+          let pos = await navigator.geolocation.getCurrentPosition((position) =>
+            setLoc(position)
+          );
+          let setLoc = (pos) => {
+            setLng(pos.coords.longitude);
+            setLat(pos.coords.latitude);
+            setCity(`${Math.floor(lat)}, ${Math.floor(lng)}`);
+          };
+        };
+        getLoc();
+      }
+    } catch {
+      setCity(null);
+    }
+  }, [lat, lng]);
+
   return (
     <div className='header'>
       <div className='top'>
@@ -15,7 +41,9 @@ const Header = () => {
           <div className='svg-container'>
             <img className='svg' src={location} alt='location pin' />
           </div>
-          <div className='deliver'>Deliver to $location</div>
+          <div className='deliver' onClick={() => console.log(pos.coords)}>
+            Deliver to <span>{city}</span>
+          </div>
         </div>
         <div className='search-bar '>
           <div className='department-dropdown'>All</div>
@@ -24,7 +52,13 @@ const Header = () => {
             <img className='spyglass' src={spyglass} alt='submit search' />
           </div>
         </div>
-        <div className='region header-section'>USA flag</div>
+        <div className='region header-section'>
+          <select value={language} onChange={setLanguage} className='select'>
+            <option value='en'>English</option>
+            <option value='fr'>French</option>
+            <option value='es'>Spanish</option>
+          </select>
+        </div>
         <div className='user-action-dropdown header-section'>
           Hello, Joshua Account & Lists
         </div>

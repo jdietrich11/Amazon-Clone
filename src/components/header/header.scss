@@ -119,3 +119,26 @@ $grey-light: #f2f2f2;
 .header-section {
   width: 11rem;
 }
+
+.select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1rem 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+
+  outline: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &::-ms-expand {
+    display: none;
+  }
+}
