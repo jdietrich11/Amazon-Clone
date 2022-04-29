@@ -1,0 +1,17 @@
+.feature-product-container {
+  margin-top: -1rem;
+  margin-left: -5rem;
+  z-index: -10;
+
+  .banner {
+    position: absolute;
+    color: white;
+    font-size: 5rem;
+    margin-left: 2rem;
+    margin-top: 2rem;
+  }
+
+  img {
+    width: 100vw;
+  }
+}

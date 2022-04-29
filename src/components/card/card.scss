@@ -1,0 +1,30 @@
+.card {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  text-transform: uppercase;
+
+  .card-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+  .card-grid {
+    padding: 2px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+  }
+}
+
+.product {
+  height: 10rem;
+
+  img {
+    height: 90%;
+    width: 100%;
+  }
+  .product-name {
+    text-align: center;
+  }
+}

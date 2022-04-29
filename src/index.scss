@@ -1,0 +1,20 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: 'Rubik', sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+  background-image: linear-gradient(to bottom, grey, white);
+}
+
+$primary-color: #ff9900;
+$black-color: #000;
