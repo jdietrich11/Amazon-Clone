@@ -10,28 +10,9 @@ import featuredVid from '../../assets/featured.jpg';
 import leftArrow from '../../assets/keyboard_arrow_left.svg';
 import rightArrow from '../../assets/keyboard_arrow_right.svg';
 
-import './home.scss';
+import { shoppingHistory } from '../../data/data';
 
-const shoppingHistory = [
-  {
-    id: 1,
-    imageURL:
-      'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/5eeea355389655.59822ff824b72.gif',
-    name: 'cat',
-  },
-  {
-    id: 2,
-    imageURL:
-      'https://compote.slate.com/images/697b023b-64a5-49a0-8059-27b963453fb1.gif',
-    name: 'Homer',
-  },
-  {
-    id: 3,
-    imageURL:
-      'https://images-cdn.newscred.com/Zz04NjA3ZjljMjQ0ODkxMWViOWRjYzU1OGJkNjI1ZjVkZA==',
-    name: 'art',
-  },
-];
+import './home.scss';
 
 const recVideo = [
   {
@@ -64,13 +45,19 @@ const Home = () => {
         </div>
         <div className='margin-top-negative-large row-1-of-3'>
           <div className='col'>
-            <Card title='Keep shopping for' products={shoppingHistory} />
+            <Card
+              title='Keep shopping for'
+              products={shoppingHistory.slice(0, 4)}
+            />
           </div>
           <div className='col'>
-            <Card title='Buy Again' />
+            <Card title='Buy Again' products={shoppingHistory.slice(8, 12)} />
           </div>
           <div className='col'>
-            <Card title='Gifts for Mom' />
+            <Card
+              title='Gifts for Mom'
+              products={shoppingHistory.slice(4, 8)}
+            />
           </div>
         </div>
         <div className='row-2-3rds'>
@@ -78,21 +65,30 @@ const Home = () => {
             <VideoCard video={recVideo} />
           </div>
           <div className='col-3/3'>
-            <Card title='Adidas' />
+            <Card title='clothing' products={shoppingHistory.slice(0, 4)} />
           </div>
         </div>
         <div className='row-1-of-3'>
           <div className='col'>
-            <Card title='Deal of the day' products={shoppingHistory} />
+            <Card
+              title='Deal of the day'
+              products={shoppingHistory.slice(0, 4)}
+            />
           </div>
           <div className='col'>
-            <Card title='Must-see deals' />
+            <Card
+              title='Must-see deals'
+              products={shoppingHistory.slice(12, 16)}
+            />
           </div>
           <div className='col'>
-            <Card title='back to the office picks' />
+            <Card
+              title='back to the office picks'
+              products={shoppingHistory.slice(16, 20)}
+            />
           </div>
         </div>
-        <div className='row-full'>
+        <div className='more-to-explore row-full'>
           <div className='arrow-container left'>
             <img className=' arrow' src={leftArrow} alt='left-arrow' />
           </div>
@@ -105,15 +101,14 @@ const Home = () => {
             </div>
           </div>
           <div className='arrow-container right'>
-            <img className=' arrow' src={rightArrow} alt='right-arrow' />
+            <img
+              className=' arrow'
+              src={rightArrow}
+              alt='right-arrow'
+              onClick={(e) => console.log(e)}
+            />
           </div>
         </div>
-        <div className='cards'>
-          Keep shopping, buy again, gifts for mom cards
-        </div>
-        <div>daily deals</div>
-        <div>Browsing history</div>
-        <div>Back to top</div>
       </div>
     </div>
   );

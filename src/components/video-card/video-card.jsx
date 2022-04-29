@@ -3,7 +3,6 @@ import React from 'react';
 import './video-card.scss';
 
 const VideoCard = ({ video }) => {
-  console.log(video);
   return (
     <div className='video-card'>
       <div className='video-title'>{video[0].title}</div>

@@ -5,7 +5,7 @@ import './tile.scss';
 const Tile = ({ product }) => {
   return (
     <div className='tile'>
-      <img src={product.imageURL} alt={product.title} />
+      <img src={product.image} alt={product.title} />
     </div>
   );
 };
