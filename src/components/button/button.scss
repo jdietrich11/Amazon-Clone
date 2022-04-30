@@ -1,0 +1,43 @@
+$primary-color: #ff9900;
+$black-color: #000;
+
+$background-image-test: linear-gradient(to bottom, #ffc977, $primary-color);
+
+.button-container {
+  min-width: 165px;
+  width: 100%;
+  height: 30px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  font-size: 1.5rem;
+  background-image: $background-image-test;
+  color: $black-color;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  border: 0.5px solid black;
+  box-shadow: 0 0.2rem 0.2rem rgba(0, 0, 0, 0.4);
+
+  &:hover {
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+  }
+
+  &.inverted {
+    background-image: linear-gradient(to right, white, white);
+    color: black;
+    border: 1px solid black;
+
+    &:hover {
+      background-image: linear-gradient(to right, black, black);
+      color: white;
+      border: none;
+    }
+  }
+}

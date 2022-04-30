@@ -1,0 +1,25 @@
+.auth-container {
+  height: 81vh;
+}
+
+.change-to-sign-up-container {
+  margin: auto;
+  width: 380px;
+  border-top: 1px solid rgba(128, 128, 128, 0.5);
+
+  .new-to {
+    margin-top: -0.7rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: rgba(128, 128, 128);
+    &-text {
+      margin: auto;
+      width: 11rem;
+      background-color: white;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}
