@@ -20,9 +20,13 @@ $grey-light: #f2f2f2;
     padding: 1rem 0.2rem;
     align-items: center;
     justify-content: space-evenly;
+    a {
+      text-decoration: none;
+    }
     .logo {
       font-size: 3rem;
       margin-right: 1.2rem;
+      color: white;
     }
   }
   .bottom {
@@ -98,6 +102,8 @@ $grey-light: #f2f2f2;
   position: relative;
   width: 3rem;
   height: 3rem;
+  color: white;
+
   .cart-logo {
     position: absolute;
     z-index: 5;
@@ -118,6 +124,7 @@ $grey-light: #f2f2f2;
 
 .header-section {
   width: 11rem;
+  color: white;
 }
 
 .select {
@@ -141,4 +148,14 @@ $grey-light: #f2f2f2;
   &::-ms-expand {
     display: none;
   }
+}
+
+.sign-in-link {
+  text-decoration: none;
+  color: white;
+}
+
+.link {
+  text-decoration: none;
+  color: white;
 }

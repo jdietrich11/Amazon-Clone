@@ -21,6 +21,10 @@
 .product {
   height: 14rem;
 
+  &:hover {
+    cursor: pointer;
+  }
+
   img {
     height: 90%;
     width: 100%;

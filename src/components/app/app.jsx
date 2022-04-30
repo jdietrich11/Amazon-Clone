@@ -10,8 +10,8 @@ import './app.scss';
 const App = () => {
   return (
     <div className='app'>
-      <Header />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route exact path='/' element={<Home />} />
           <Route exact path='/auth' element={<AuthPage />} />

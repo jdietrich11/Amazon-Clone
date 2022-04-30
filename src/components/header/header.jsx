@@ -6,13 +6,16 @@ import spyglass from '../../assets/magnifying-glass.svg';
 import cart from '../../assets/add_shopping_cart.svg';
 
 import { selectCurrentUser } from '../../store/user/user.selector';
+import { selectCartCount } from '../../store/cart/cart.selector';
 
 import { signOutUser } from '../../utils/firestore/firestore';
 
 import './header.scss';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const currentUser = useSelector(selectCurrentUser);
+  const cartCount = useSelector(selectCartCount);
   console.log(currentUser);
   const [lat, setLat] = useState('');
   const [lng, setLng] = useState('');
@@ -43,7 +46,9 @@ const Header = () => {
   return (
     <div className='header'>
       <div className='top'>
-        <div className='header-section logo'>AMAZON</div>
+        <Link to='/'>
+          <div className='header-section logo'>AMAZON</div>
+        </Link>
         <div className='header-section deliver-to'>
           <div className='svg-container'>
             <img className='svg' src={location} alt='location pin' />
@@ -67,29 +72,50 @@ const Header = () => {
           </select>
         </div>
         <div className='user-action-dropdown header-section'>
-          {currentUser ? <div>Hello, Account & Lists</div> : <div>Sign-In</div>}
+          {currentUser ? (
+            <div>Hello, Account & Lists</div>
+          ) : (
+            <Link className='sign-in-link' to='/auth'>
+              Sign-In
+            </Link>
+          )}
         </div>
-        <div className='returns header-section'>Returns & Orders</div>
-        <div className='cart header-section'>
+        <Link to='/history' className='returns header-section'>
+          Returns & Orders
+        </Link>
+        <Link to='/cart' className='cart header-section'>
           <div className='cart-logo'>
             <img className='cart-svg' src={cart} alt='cart' />
           </div>
-          <div className='cart-quantity'>0</div>
-        </div>
+          <div className='cart-quantity'>{cartCount}</div>
+        </Link>
       </div>
       <div className='bottom'>
         <div className='dropdown'>
           <div className='hamburger'></div>
           <div className='all'>All</div>
         </div>
-        <div className='link'>Prime Video</div>
-        <div className='link'>Customer Service</div>
-        <div className='prime-dropdown'>Prime</div>
-        <div className='link'>Amazon Basics</div>
-        <div className='link'>Best Sellers</div>
-        <div className='link'>Coupons</div>
-        <div className='link'>Registry</div>
-        <div className='link'>Prevent theft with Amazon Key</div>
+        <Link to='/prime-video' className='link'>
+          Prime Video
+        </Link>
+        <Link to='/customer-service' className='link'>
+          Customer Service
+        </Link>
+        <Link to='/prime' className='link prime-dropdown'>
+          Prime
+        </Link>
+        <Link to='/basics' className='link'>
+          Amazon Basics
+        </Link>
+        <Link to='/best-sellers' className='link'>
+          Best Sellers
+        </Link>
+        <Link to='/coupons' className='link'>
+          Coupons
+        </Link>
+        <Link to='/regestry' className='link'>
+          Registry
+        </Link>
       </div>
     </div>
   );

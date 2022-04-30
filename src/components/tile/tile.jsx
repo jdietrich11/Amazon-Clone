@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import './tile.scss';
 
 const Tile = ({ product }) => {
   return (
-    <div className='tile'>
+    <Link to={`/product:${product.id}`} className='tile'>
       <img src={product.image} alt={product.title} />
-    </div>
+    </Link>
   );
 };
 
