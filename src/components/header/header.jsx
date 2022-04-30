@@ -8,8 +8,6 @@ import cart from '../../assets/add_shopping_cart.svg';
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { selectCartCount } from '../../store/cart/cart.selector';
 
-import { signOutUser } from '../../utils/firestore/firestore';
-
 import './header.scss';
 import { Link } from 'react-router-dom';
 
@@ -21,7 +19,6 @@ const Header = () => {
   const [lng, setLng] = useState('');
   const [city, setCity] = useState('');
   const [language, setLanguage] = useState('english');
-  let pos;
 
   useEffect(() => {
     try {

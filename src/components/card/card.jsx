@@ -9,16 +9,12 @@ const Card = ({ title, products }) => {
       <div className='card-grid'>
         {products &&
           products.map((product) => (
-            <Link
-              to={`/product:${product.id}`}
-              key={product.id}
-              className='product'
-            >
+            <div key={product.id} className='product'>
               <Link to={`/product:${product.id}`}>
                 <img src={product.image} alt={product.title} />
                 <div className='product-name'>{product.title}</div>
               </Link>
-            </Link>
+            </div>
           ))}
       </div>
     </div>
