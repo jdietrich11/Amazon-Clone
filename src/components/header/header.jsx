@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import location from '../../assets/map-pin.svg';
 import spyglass from '../../assets/magnifying-glass.svg';
 import cart from '../../assets/add_shopping_cart.svg';
 
+import { selectCurrentUser } from '../../store/user/user.selector';
+
+import { signOutUser } from '../../utils/firestore/firestore';
+
 import './header.scss';
 
 const Header = () => {
+  const currentUser = useSelector(selectCurrentUser);
+  console.log(currentUser);
   const [lat, setLat] = useState('');
   const [lng, setLng] = useState('');
   const [city, setCity] = useState('');
@@ -41,7 +48,7 @@ const Header = () => {
           <div className='svg-container'>
             <img className='svg' src={location} alt='location pin' />
           </div>
-          <div className='deliver' onClick={() => console.log(pos.coords)}>
+          <div className='deliver'>
             Deliver to <span>{city}</span>
           </div>
         </div>
@@ -60,7 +67,7 @@ const Header = () => {
           </select>
         </div>
         <div className='user-action-dropdown header-section'>
-          Hello, Joshua Account & Lists
+          {currentUser ? <div>Hello, Account & Lists</div> : <div>Sign-In</div>}
         </div>
         <div className='returns header-section'>Returns & Orders</div>
         <div className='cart header-section'>

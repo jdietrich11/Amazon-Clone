@@ -6,6 +6,9 @@ import FormInput from '../form-input/form-input';
 import Button from '../button/button';
 
 import './sign-in.scss';
+import { useDispatch } from 'react-redux';
+
+import { setCurrentUser } from '../../store/user/user.action';
 
 const defaultFormFields = {
   email: '',
@@ -13,6 +16,7 @@ const defaultFormFields = {
 };
 
 const SignInForm = () => {
+  const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
@@ -33,6 +37,8 @@ const SignInForm = () => {
         email,
         password
       );
+
+      dispatch(setCurrentUser(user));
 
       resetFormfields();
     } catch (err) {
