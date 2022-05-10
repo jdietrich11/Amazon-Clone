@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 const Header = () => {
   const currentUser = useSelector(selectCurrentUser);
   const cartCount = useSelector(selectCartCount);
-  console.log(currentUser);
+
   const [lat, setLat] = useState('');
   const [lng, setLng] = useState('');
   const [city, setCity] = useState('');
