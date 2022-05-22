@@ -89,7 +89,12 @@ const Home = () => {
           </div>
         </div>
         <div className='more-to-explore row-full'>
-          <div className='arrow-container left'>
+          <div
+            onClick={() =>
+              (document.querySelector('.more-to-explore').scrollLeft -= 200)
+            }
+            className='arrow-container left'
+          >
             <img className=' arrow' src={leftArrow} alt='left-arrow' />
           </div>
           <div>
@@ -100,7 +105,12 @@ const Home = () => {
               ))}
             </div>
           </div>
-          <div className='arrow-container right'>
+          <div
+            onClick={() =>
+              (document.querySelector('.more-to-explore').scrollLeft += 200)
+            }
+            className='arrow-container right'
+          >
             <img
               className=' arrow'
               src={rightArrow}

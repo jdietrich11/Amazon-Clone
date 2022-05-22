@@ -4,10 +4,10 @@
 }
 
 .arrow-container {
-  position: absolute;
-  height: 75%;
+  position: sticky;
+  height: 150%;
   width: 10%;
-  top: 50%;
+  top: 100%;
   transform: translateY(-50%);
   z-index: 100;
   display: flex;
@@ -101,4 +101,14 @@
 
 .more-to-explore {
   overflow-x: scroll;
+  scroll-behavior: smooth;
+  position: relative;
+
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+  }
 }
